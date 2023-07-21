@@ -2,12 +2,14 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
     "sap/m/MessageBox",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, MessageBox, JSONModel) {
+    function (Controller, MessageToast, MessageBox, JSONModel, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("ns.proyecto1.controller.HW", {
@@ -34,6 +36,10 @@ sap.ui.define([
                 oProducts.setProperty("/isBusy", true);
                 let sPath = "/Products";
                 this.oModel.read(sPath, {
+                    // filters: filtros,
+                    // urlParameters: {
+                    //     "$expand": ["Orders", ""]
+                    // },
                     success: function(oData){
                         console.log(oData);
                         oProducts.setProperty("/products", oData.results);
@@ -45,6 +51,7 @@ sap.ui.define([
                     finally: function(){
                     }
                 })
+                
             },
             
             onBeforeRendering: function (){
@@ -69,5 +76,14 @@ sap.ui.define([
                     icon: MessageBox.Icon.SUCCESS
                 });
             },
+
+            onSearch: function(oEvent){
+                let sQuery = oEvent.getParameters().query;
+                let oList = this.byId("lista1");
+                let oBinding = oList.getBinding("items");
+                let filtros =[];
+                if(sQuery) filtros.push(new Filter({path: "ProductName", operator: FilterOperator.Contains, value1: sQuery}));
+                oBinding.filter(filtros);
+            }
         });
     });

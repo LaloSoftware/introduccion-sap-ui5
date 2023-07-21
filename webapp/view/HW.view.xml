@@ -2,9 +2,23 @@
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
     xmlns="sap.m"
-    xmlns:sf="sap.ui.comp.smartform">
+    xmlns:sf="sap.ui.comp.smartform"
+    xmlns:f="sap.ui.layout.form">
     <Page id="page" title="{i18n>title}">
         <content >
+            <f:SimpleForm id="simpleForm01">
+                <f:content>
+                    <Label id="lbl01" text="ID"/>
+                    <Input id="input01" type="Date"/>
+                    <Label id="lbl02" text="Codigo"/>
+                    <MaskInput id="msk01" mask="NNNN-LLNN-LLNN">
+                        <rules>
+                            <MaskInputRule id="r01" maskFormatSymbol="N" regex="[0-9]"/>
+                            <MaskInputRule id="r02" maskFormatSymbol="L" regex="[A-Z]"/>
+                        </rules>
+                    </MaskInput>
+                </f:content>
+            </f:SimpleForm>
             <!-- <VBox id="vb1">
                 <Button id="btn1" type="Accept" text="Show toast" icon="sap-icon://competitor" press="handlePressEvent"/>
                 <Button id="btn2" type="Emphasized" text="Show box" press="handlePressBoxEvent"/>
@@ -13,6 +27,11 @@
             <List id="lista1"
                 items="{NWProducts>/products}"
                 busy="{NWProducts>/isBusy}">
+                <headerToolbar>
+                    <Toolbar id="tb01">
+                        <SearchField id="sf01" search="onSearch"/>
+                    </Toolbar>
+                </headerToolbar>
                 <StandardListItem id="sli" title="{NWProducts>ProductName}"/>
             </List>
         </content>
