@@ -7,6 +7,15 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
+    "dataSources": {
+      "nw": {
+        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
+    },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
@@ -57,6 +66,10 @@
         "settings": {
           "bundleName": "ns.proyecto1.i18n.i18n"
         }
+      },
+      "northwind": {
+        "dataSource": "nw",
+        "preload": true
       }
     },
     "resources": {

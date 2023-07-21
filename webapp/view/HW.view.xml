@@ -5,11 +5,16 @@
     xmlns:sf="sap.ui.comp.smartform">
     <Page id="page" title="{i18n>title}">
         <content >
-            <VBox id="vb1">
+            <!-- <VBox id="vb1">
                 <Button id="btn1" type="Accept" text="Show toast" icon="sap-icon://competitor" press="handlePressEvent"/>
                 <Button id="btn2" type="Emphasized" text="Show box" press="handlePressBoxEvent"/>
             </VBox>
-            <sf:SmartForm id="sm01"></sf:SmartForm>
+            <sf:SmartForm id="sm01"></sf:SmartForm> -->
+            <List id="lista1"
+                items="{NWProducts>/products}"
+                busy="{NWProducts>/isBusy}">
+                <StandardListItem id="sli" title="{NWProducts>ProductName}"/>
+            </List>
         </content>
     </Page>
 </mvc:View>
