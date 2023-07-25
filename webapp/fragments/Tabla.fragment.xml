@@ -1,0 +1,42 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Table 
+        id="tableId"
+        noDataText="There's no products"
+        items="{NWProducts>/products}"
+        busy="{NWProducts>/isBusy}">
+        <columns>
+            <Column id="c01">
+                <header>
+                    <Label id="lblT01" text="Product"/>
+                </header>
+            </Column>
+            <Column id="c02">
+                <header>
+                    <Label id="lblT02" text="Unit price"/>
+                </header>
+            </Column>
+            <Column id="c03">
+                <header>
+                    <Label id="lblT03" text="Stock"/>
+                </header>
+            </Column>
+            <Column id="c04">
+                <header>
+                    <Label id="lblT04" text="Quantity per unit"/>
+                </header>
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem id="cli01" press=".handleItemPress" type="Active">
+                <cells>
+                    <ObjectIdentifier id="oi01" title="{NWProducts>ProductName}" text="{NWProducts>ProductID}"/>
+                    <ObjectNumber id="on01" number="{NWProducts>UnitPrice}" unit="USD" state="None"/>
+                    <Text id="txttbl01" text="{NWProducts>UnitsInStock}"/>
+                    <Text id="txttbl02" text="{NWProducts>QuantityPerUnit}"/>
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

@@ -3,12 +3,13 @@
     xmlns="sap.m">
     <List id="lista1"
         items="{NWProducts>/products}"
-        busy="{NWProducts>/isBusy}">
+        busy="{NWProducts>/isBusy}"
+        >
         <headerToolbar>
             <Toolbar id="tb01">
                 <SearchField id="sf01" search="onSearch"/>
             </Toolbar>
         </headerToolbar>
-        <StandardListItem id="sli" title="{NWProducts>ProductName}"/>
+        <StandardListItem id="sli" title="{NWProducts>ProductName}" press="handleItemPress"/>
     </List>
 </core:FragmentDefinition>
