@@ -1,0 +1,11 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="detailPage" title="Detalle">
+        <content>
+            <VBox id="vb01" class="sapUiResponsivePadding">
+                <Text id="txt01" text="Lorem impsum..."/>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

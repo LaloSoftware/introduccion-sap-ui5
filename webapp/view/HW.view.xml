@@ -3,10 +3,16 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:sf="sap.ui.comp.smartform"
-    xmlns:f="sap.ui.layout.form">
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
     <Page id="page" title="{i18n>title}">
         <content >
-            <f:SimpleForm id="simpleForm01">
+            <core:Fragment fragmentName="ns.proyecto1.fragments.Listado" type="XML" />
+        </content>
+    </Page>
+</mvc:View>
+
+            <!-- <f:SimpleForm id="simpleForm01">
                 <f:content>
                     <Label id="lbl01" text="ID"/>
                     <Input id="input01" type="Date"/>
@@ -18,22 +24,9 @@
                         </rules>
                     </MaskInput>
                 </f:content>
-            </f:SimpleForm>
+            </f:SimpleForm> -->
             <!-- <VBox id="vb1">
                 <Button id="btn1" type="Accept" text="Show toast" icon="sap-icon://competitor" press="handlePressEvent"/>
                 <Button id="btn2" type="Emphasized" text="Show box" press="handlePressBoxEvent"/>
             </VBox>
             <sf:SmartForm id="sm01"></sf:SmartForm> -->
-            <List id="lista1"
-                items="{NWProducts>/products}"
-                busy="{NWProducts>/isBusy}">
-                <headerToolbar>
-                    <Toolbar id="tb01">
-                        <SearchField id="sf01" search="onSearch"/>
-                    </Toolbar>
-                </headerToolbar>
-                <StandardListItem id="sli" title="{NWProducts>ProductName}"/>
-            </List>
-        </content>
-    </Page>
-</mvc:View>

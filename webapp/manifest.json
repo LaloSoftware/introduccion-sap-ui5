@@ -96,6 +96,13 @@
           "target": [
             "TargetHW"
           ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "detalle/{id}",
+          "target": [
+            "TargetDetail"
+          ]
         }
       ],
       "targets": {
@@ -105,6 +112,11 @@
           "clearControlAggregation": false,
           "viewId": "HW",
           "viewName": "HW"
+        },
+        "TargetDetail":{
+          "viewId": "Detail",
+          "viewName": "Detail",
+          "viewType": "XML"
         }
       }
     },
