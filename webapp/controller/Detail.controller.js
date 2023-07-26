@@ -49,9 +49,9 @@ sap.ui.define([
             let sPreviusHash = History.getInstance().getPreviousHash();
 
             if(sPreviusHash){
-                History.go(-1);
+                history.go(-1);
             } else {
-                this._router.navTo("home");
+                this._router.navTo("RouteHW");
             }
         }
     });
