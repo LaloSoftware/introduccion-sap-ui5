@@ -6,7 +6,8 @@
         id="detailPage"
 		title="Detalle"
 		class="sapUiContentPadding"
-		showNavButton="true">
+		showNavButton="true"
+        navButtonPress="onNavBack">
 		<headerContent>
 			<Button id="btnHC" icon="sap-icon://action" tooltip="Share"/>
 		</headerContent>

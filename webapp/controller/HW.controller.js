@@ -5,11 +5,12 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
+    "sap/ui/core/UIComponent",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, MessageBox, JSONModel, Filter, FilterOperator) {
+    function (Controller, MessageToast, MessageBox, JSONModel, Filter, FilterOperator, UIComponent) {
         "use strict";
 
         return Controller.extend("ns.proyecto1.controller.HW", {
@@ -84,6 +85,13 @@ sap.ui.define([
                 let filtros =[];
                 if(sQuery) filtros.push(new Filter({path: "ProductName", operator: FilterOperator.Contains, value1: sQuery}));
                 oBinding.filter(filtros);
-            }
+            },
+
+            handleItemPress: function(oControlEvent){
+                let productID = oControlEvent.getSource().getBindingContext("NWProducts").getProperty("ProductID");
+                UIComponent.getRouterFor(this).navTo("Detail", {
+                    id: productID
+                });
+            },
         });
     });

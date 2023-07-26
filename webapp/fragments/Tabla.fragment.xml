@@ -32,7 +32,7 @@
             <ColumnListItem id="cli01" press=".handleItemPress" type="Active">
                 <cells>
                     <ObjectIdentifier id="oi01" title="{NWProducts>ProductName}" text="{NWProducts>ProductID}"/>
-                    <ObjectNumber id="on01" number="{NWProducts>UnitPrice}" unit="USD" state="None"/>
+                    <ObjectNumber id="on01" number="${NWProducts>UnitPrice}" unit="USD" state="None"/>
                     <Text id="txttbl01" text="{NWProducts>UnitsInStock}"/>
                     <Text id="txttbl02" text="{NWProducts>QuantityPerUnit}"/>
                 </cells>
