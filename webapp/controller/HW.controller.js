@@ -6,14 +6,15 @@ sap.ui.define([
     "sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
     "sap/ui/core/UIComponent",
+    "./BaseController"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageToast, MessageBox, JSONModel, Filter, FilterOperator, UIComponent) {
+    function (BaseController, MessageToast, MessageBox, JSONModel, Filter, FilterOperator, UIComponent) {
         "use strict";
 
-        return Controller.extend("ns.proyecto1.controller.HW", {
+        return BaseController.extend("ns.proyecto1.controller.HW", {
             oModel: null,
 
             onInit: function () {
@@ -29,11 +30,11 @@ sap.ui.define([
                     products: [],
                     isBusy: false
                 });
-                this.getView().setModel(productos, "NWProducts");
+                this.setModel(productos, "NWProducts");
             },
 
             _getProducts: function(){
-                let oProducts = this.getView().getModel("NWProducts");
+                let oProducts = this.getModel("NWProducts");
                 oProducts.setProperty("/isBusy", true);
                 let sPath = "/Products";
                 this.oModel.read(sPath, {
@@ -89,7 +90,7 @@ sap.ui.define([
 
             handleItemPress: function(oControlEvent){
                 let productID = oControlEvent.getSource().getBindingContext("NWProducts").getProperty("ProductID");
-                UIComponent.getRouterFor(this).navTo("Detail", {
+                this.getRouter().navTo("Detail", {
                     id: productID
                 });
             },
